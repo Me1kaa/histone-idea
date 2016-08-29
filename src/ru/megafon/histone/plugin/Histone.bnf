@@ -1,0 +1,21 @@
+{
+  parserClass="ru.megafon.histone.plugin.parser.HistoneParser"
+  parserUtilClass="ru.megafon.histone.plugin.parser.HistoneParserUtil"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Histone"
+  psiImplClassSuffix="Impl"
+  psiPackage="ru.megafon.histone.plugin.psi"
+  psiImplPackage="ru.megafon.histone.plugin.psi.impl"
+
+  elementTypeHolderClass="ru.megafon.histone.plugin.psi.HistoneTypes"
+  elementTypeClass="ru.megafon.histone.plugin.psi.HistoneElementType"
+  tokenTypeClass="ru.megafon.histone.plugin.psi.HistoneTokenType"
+}
+
+simpleFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
